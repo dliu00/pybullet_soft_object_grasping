@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="GEN3-6DOF_BRAKES_VISION_URDF_ARM_V01"
+  version="1.0">
+    <link name="base_link">
+    <inertial>
+      <origin xyz="-0.000648 -0.000166 0.084487" rpy="0 0 0" />
+      <mass value="1.697" />
+      <inertia ixx="0.004622" ixy="9E-06" ixz="6E-05" iyy="0.004495" iyz="9E-06" izz="0.002079" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="shoulder_link">
+    <inertial>
+      <origin xyz="-2.3E-05 -0.010364 -0.07336" rpy="0 0 0" />
+      <mass value="1.377" />
+      <inertia ixx="0.00457" ixy="1E-06" ixz="2E-06" iyy="0.004831" iyz="0.000448" izz="0.001409" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/shoulder_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_1" type="continuous">
+    <origin xyz="0 0 0.15643" rpy="-3.1416 0 0" />
+    <parent link="base_link" />
+    <child link="shoulder_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="39" velocity="1.3963" />
+  </joint>
+  <link name="bicep_link">
+    <inertial>
+      <origin xyz="3.5E-05 -0.208207 -0.01889" rpy="0 0 0" />
+      <mass value="1.262" />
+      <inertia ixx="0.046752" ixy="-9E-06" ixz="0" iyy="0.00085" iyz="-9.8E-05" izz="0.047188" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/bicep_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/bicep_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2" type="revolute">
+    <origin xyz="0 0.005375 -0.12838" rpy="1.5708 0 0" />
+    <parent link="shoulder_link" />
+    <child link="bicep_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.24" upper="2.24" effort="39" velocity="1.3963" />
+  </joint>
+  <link name="forearm_link">
+    <inertial>
+      <origin xyz="1.8E-05 0.076168 -0.01397" rpy="0 0 0" />
+      <mass value="0.93" />
+      <inertia ixx="0.008292" ixy="-1E-06" ixz="0" iyy="0.000628" iyz="0.000432" izz="0.008464" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/forearm_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/forearm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_3" type="revolute">
+    <origin xyz="0 -0.41 0" rpy="3.1416 0 0" />
+    <parent link="bicep_link" />
+    <child link="forearm_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.57" upper="2.57" effort="39" velocity="1.3963" />
+  </joint>
+  <link name="spherical_wrist_1_link">
+    <inertial>
+      <origin xyz="-1E-06 0.008486 -0.062937" rpy="0 0 0" />
+      <mass value="0.678" />
+      <inertia ixx="0.001645" ixy="0" ixz="0" iyy="0.001666" iyz="-0.000234" izz="0.000389" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/spherical_wrist_1_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/spherical_wrist_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_4" type="continuous">
+    <origin xyz="0 0.20843 -0.006375" rpy="1.5708 0 0" />
+    <parent link="forearm_link" />
+    <child link="spherical_wrist_1_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="9" velocity="1.2218" />
+  </joint>
+  <link name="spherical_wrist_2_link">
+    <inertial>
+      <origin xyz="-1E-06 0.046429 -0.008704" rpy="0 0 0" />
+      <mass value="0.678" />
+      <inertia ixx="0.001685" ixy="0" ixz="0" iyy="0.0004" iyz="0.000255" izz="0.001696" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/spherical_wrist_2_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://kortex_description/arms/gen3/6dof/meshes/spherical_wrist_2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_5" type="revolute">
+    <origin xyz="0 -0.00017505 -0.10593" rpy="-1.5708 0 0" />
+    <parent link="spherical_wrist_1_link" />
+    <child link="spherical_wrist_2_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.09" upper="2.09" effort="9" velocity="1.2218" />
+  </joint>
+  
+  <joint name="joint_6" type="continuous">
+    <origin xyz="0 0.10593 -0.00017505" rpy="1.5708 0 0" />
+    <parent link="spherical_wrist_2_link" />
+    <child link="base_link2" />
+    <axis xyz="0 0 1" />
+    <limit effort="9" velocity="1.2218" />
+  </joint>
+
+
+
+
+    <!-- Connect base_link2 to bracelet_link using a proper joint -->
+  <link name="base_link2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.5" />
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/hand_3finger.obj"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/hand_3finger.obj"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- Define fingers and their joints properly -->
+  <link name="finger_1">
+      <inertial>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <mass value="0.1" />
+          <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      </inertial>
+      <visual>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_proximal.obj"/>
+          </geometry>
+          <material name="carbon_fiber">
+              <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+          </material>
+      </visual>
+      <collision>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_proximal.obj"/>
+          </geometry>
+      </collision>
+  </link>
+
+  <joint name="joint_finger_1" type="revolute">
+      <parent link="base_link2"/>
+      <child link="finger_1"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="-1.570796327 .649262481663582 1.5708" xyz="0 0.03126 -0.11467"/>
+      <limit effort="2000" lower="0" upper="2" velocity="1"/>
+  </joint>
+
+  <link name="finger_tip_1">
+      <inertial>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <mass value="0.05" />
+          <inertia ixx="0.0005" ixy="0" ixz="0" iyy="0.0005" iyz="0" izz="0.0005" />
+      </inertial>
+      <visual>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_distal.obj"/>
+          </geometry>
+          <material name="carbon_fiber">
+              <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+          </material>
+      </visual>
+      <collision>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_distal.obj"/>
+          </geometry>
+      </collision>
+  </link>
+
+  <joint name="joint_finger_tip_1" type="revolute">
+      <parent link="finger_1"/>
+      <child link="finger_tip_1"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 0" xyz="0.044 -0.003 0"/>
+      <limit effort="2000" lower="0" upper="1.9" velocity="0.8"/>
+  </joint>
+
+  <link name="finger_2">
+      <inertial>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <mass value="0.1" />
+          <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      </inertial>
+      <visual>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_proximal.obj"/>
+          </geometry>
+          <material name="carbon_fiber">
+              <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+          </material>
+      </visual>
+      <collision>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_proximal.obj"/>
+          </geometry>
+      </collision>
+  </link>
+
+  <joint name="joint_finger_2" type="revolute">
+      <parent link="base_link2"/>
+      <child link="finger_2"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="-1.570796327 .649262481663582 -1.38614049188413" xyz="0.02226 -0.02707 -0.11482"/>
+      <limit effort="2000" lower="0" upper="2" velocity="1"/>
+  </joint>
+
+  <link name="finger_tip_2">
+      <inertial>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <mass value="0.05" />
+          <inertia ixx="0.0005" ixy="0" ixz="0" iyy="0.0005" iyz="0" izz="0.0005" />
+      </inertial>
+      <visual>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_distal.obj"/>
+          </geometry>
+          <material name="carbon_fiber">
+              <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+          </material>
+      </visual>
+      <collision>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_distal.obj"/>
+          </geometry>
+      </collision>
+  </link>
+
+  <joint name="joint_finger_tip_2" type="revolute">
+      <parent link="finger_2"/>
+      <child link="finger_tip_2"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 0" xyz="0.044 -0.003 0"/>
+      <limit effort="2000" lower="0" upper="1.9" velocity="0.8"/>
+  </joint>
+
+  <link name="finger_3">
+      <inertial>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <mass value="0.1" />
+          <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      </inertial>
+      <visual>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_proximal.obj"/>
+          </geometry>
+          <material name="carbon_fiber">
+              <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+          </material>
+      </visual>
+      <collision>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_proximal.obj"/>
+          </geometry>
+      </collision>
+  </link>
+
+  <joint name="joint_finger_3" type="revolute">
+      <parent link="base_link2"/>
+      <child link="finger_3"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="-1.570796327 .649262481663582 -1.75545216211587" xyz="-0.02226 -0.02707 -0.11482"/>
+      <limit effort="2000" lower="0" upper="2" velocity="1"/>
+  </joint>
+
+  <link name="finger_tip_3">
+      <inertial>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <mass value="0.05" />
+          <inertia ixx="0.0005" ixy="0" ixz="0" iyy="0.0005" iyz="0" izz="0.0005" />
+      </inertial>
+      <visual>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_distal.obj"/>
+          </geometry>
+          <material name="carbon_fiber">
+              <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+          </material>
+      </visual>
+      <collision>
+          <geometry>
+              <mesh filename="file://C:/Users/25166/Desktop/pybullet_robo/grippers/meshes/kinova_kg3/finger_distal.obj"/>
+          </geometry>
+      </collision>
+  </link>
+
+  <joint name="joint_finger_tip_3" type="revolute">
+      <parent link="finger_3"/>
+      <child link="finger_tip_3"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 0" xyz="0.044 -0.003 0"/>
+      <limit effort="2000" lower="0" upper="1.9" velocity="0.8"/>
+  </joint>
+</robot>
