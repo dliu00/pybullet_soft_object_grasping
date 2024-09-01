@@ -13,4 +13,5 @@ This project simulates a robotic manipulator using PyBullet. The simulation focu
 To run this simulation, you'll need to have Python installed along with the following packages:
 
 ```bash
-pip install pybullet numpy matplotlib
+pip install pybullet numpy
+
